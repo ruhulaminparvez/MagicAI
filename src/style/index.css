@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --white: '#ffffff';
+  --black: '#000000';
+  --headingForeground: '#1F2328';
+  --lightGray: 'rgb(102, 112, 127)';
+  --background: 240 25% 98%;
+  --foreground: 216 11% 45%;
+  --heading-background: 0 0% 100%;
+  --heading-foreground: 213 13% 14%;
+  --fontPrimary: "Golos Text", sans-serif;
+  --fontSecondary: "Onest", sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb
+}
+
+:before,
+:after {
+  --tw-content: ""
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fontSecondary), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  color: hsl(var(--heading-foreground))
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 500
+}
+
+h1 {
+  font-size: 84px;
+  line-height: .916em;
+  letter-spacing: -.05em
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1em
+}
+
+h2 {
+  font-size: 53px;
+  letter-spacing: -.03em
+}
+
+h3 {
+  font-size: 39px;
+  line-height: 1.1;
+  letter-spacing: -.03em
+}
+
+h4 {
+  font-size: 18px;
+  letter-spacing: -.01em
+}
+
+h5 {
+  font-size: 16px;
+  letter-spacing: -.01em
+}
+
+h6 {
+  font-family: var(--fontPrimary), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+  font-size: 12px;
+  font-weight: 500
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 69px
+  }
+}
+
+@media (max-width: 479px) {
+  h1 {
+    font-size: 16vw
+  }
+
+  h1 svg {
+    width: .55em
+  }
+}
+
+.container {
+  @apply mx-auto px-4;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1170px) {
+  .container {
+    max-width: 1170px;
+  }
+}
