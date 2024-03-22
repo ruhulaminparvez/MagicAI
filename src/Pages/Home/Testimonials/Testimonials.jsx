@@ -3,61 +3,40 @@ import { Splide, SplideSlide } from "@splidejs/react-splide"
 import ScrollAwareSection from "../../../components/ScrollAwareSection"
 import { centralImages } from "../../../utils/images/centralImages"
 import { testimonialData } from "../../../utils/mock/mockData"
+import { useEffect } from "react"
 
 const Testimonials = () => {
-  const options2 = {
-    // perPage: 1,
-    type: 'loop',
-    // perMove: 1,
-    // autoplay: false,
-    // arrows: true,
-    classes: {
-      prev: 'splide__arrow--prev -translate-x-20 -translate-y-1/2 opacity-40',
-      next: 'splide__arrow--next translate-x-20 -translate-y-1/2 opacity-40',
-    },
-    pagination: false,
-    // width: '100%',
-    // height: '100%',
-  }
   const options = {
-    // perPage: 1,
     type: 'loop',
     perPage: 3,
     focus: 'center',
-    // perMove: 1,
-    // autoplay: false,
-    arrows: false,
+    classes: {
+      prev: 'splide__arrow--prev avatar-carousel-prev hidden h-0',
+      next: 'splide__arrow--next avatar-carousel-next hidden h-0',
+    },
     pagination: false,
     drag: false,
-    // width: '100%',
-    // height: '100%',
   }
-  // useEffect(() => {
-  //   // Load Flickity script from CDN
-  //   const script = document.createElement('script');
-  //   script.src = 'https://cdn.jsdelivr.net/npm/flickity@2.2.2/dist/flickity.pkgd.min.js';
-  //   script.async = true;
-  //   document.body.appendChild(script);
-
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   // Initialize Flickity when script is loaded
-  //   if (window.Flickity) {
-  //     new window.Flickity('.flickity-enabled', {
-  //       asNavFor: '.testimonials-main-carousel',
-  //       contain: false,
-  //       pageDots: false,
-  //       cellAlign: 'center',
-  //       prevNextButtons: false,
-  //       wrapAround: true,
-  //       draggable: false
-  //     });
-  //   }
-  // }, []);
+  const options2 = {
+    type: 'loop',
+    classes: {
+      prev: 'splide__arrow--prev comment-carousel-prev -translate-x-20 -translate-y-1/2 opacity-40',
+      next: 'splide__arrow--next comment-carousel-next translate-x-20 -translate-y-1/2 opacity-40',
+    },
+    pagination: false,
+  }
+  useEffect(() => {
+    const avatarPrev = document.querySelector('.avatar-carousel-prev')
+    const avatarNext = document.querySelector('.avatar-carousel-next')
+    const commentPrev = document.querySelector('.comment-carousel-prev')
+    const commentNext = document.querySelector('.comment-carousel-next')
+    commentPrev.addEventListener('click', () => {
+      avatarPrev.click()
+    })
+    commentNext.addEventListener('click', () => {
+      avatarNext.click()
+    })
+  }, [])
   return (
     <ScrollAwareSection className='relative py-10' id='testimonials'>
       <div
@@ -89,63 +68,15 @@ const Testimonials = () => {
                   WebkitMaskImage: 'linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100% )'
                 }}
                 tabIndex="0">
-                {/* <div
-                  className="flickity-viewport"
-                  style={{ height: '157px', touchAction: 'pan-y' }}
-                >
-                  <div className="flickity-slider"
-                    style={{ left: '0px', transform: 'translateX(-43.96%)' }}
-                  >
-                    <div
-                      className="w1/3 group cursor-pointer pb-[16px] pt-9 text-center text-[15px] font-medium is-selected is-nav-selected"
-                      style={{ position: 'absolute', left: '0px', transform: 'translateX(281.26%)' }}
-                      aria-hidden="true"
-                    >
-                      <figure className="size-11 mx-auto mb-4 overflow-hidden rounded-full transition-all group-[&amp;.is-nav-selected]:-translate-y-4 group-[&amp;.is-nav-selected]:scale-[1.75] group-[&amp;.is-nav-selected]:border-[5px] group-[&amp;.is-nav-selected]:border-white group-[&amp;.is-nav-selected]:shadow-sm max-sm:group-[&amp;.is-nav-selected]:scale-150">
-                        <img className="h-full w-full object-cover object-center" src={centralImages.testimonial_client_1} alt="Peline Jan" />
-                      </figure>
-                      <div className="whitespace-nowrap opacity-0 transition-all group-[&amp;.is-nav-selected]:opacity-100">
-                        <p className="text-heading-foreground">Peline Jan</p>
-                        <p className="text-heading-foreground opacity-15">Entrepreneur</p>
-                      </div>
-                    </div>
-                    <div className="w1/3 group cursor-pointer pb-[16px] pt-9 text-center text-[15px] font-medium"
-                      // style="position: absolute; left: 0px; transform: translateX(118.89%);"
-                      style={{ position: 'absolute', left: '0px', transform: 'translateX(118.89%)' }}
-                      aria-hidden="true"
-                    >
-                      <figure className="size-11 mx-auto mb-4 overflow-hidden rounded-full transition-all group-[&amp;.is-nav-selected]:-translate-y-4 group-[&amp;.is-nav-selected]:scale-[1.75] group-[&amp;.is-nav-selected]:border-[5px] group-[&amp;.is-nav-selected]:border-white group-[&amp;.is-nav-selected]:shadow-sm max-sm:group-[&amp;.is-nav-selected]:scale-150">
-                        <img className="h-full w-full object-cover object-center" src={centralImages.testimonial_client_2} alt="Tom Daniel" />
-                      </figure>
-                      <div className="whitespace-nowrap opacity-0 transition-all group-[&amp;.is-nav-selected]:opacity-100">
-                        <p className="text-heading-foreground">Tom Daniel</p>
-                        <p className="text-heading-foreground opacity-15">Writer</p>
-                      </div>
-                    </div>
-                    <div
-                      className="w1/3 group cursor-pointer pb-[16px] pt-9 text-center text-[15px] font-medium is-selected is-nav-selected"
-                      // style="position: absolute; left: 0px; transform: translateX(189.51%);"
-                      style={{ position: 'absolute', left: '0px', transform: 'translateX(189.51%)' }}
-                    >
-                      <figure className="size-11 mx-auto mb-4 overflow-hidden rounded-full transition-all group-[&amp;.is-nav-selected]:-translate-y-4 group-[&amp;.is-nav-selected]:scale-[1.75] group-[&amp;.is-nav-selected]:border-[5px] group-[&amp;.is-nav-selected]:border-white group-[&amp;.is-nav-selected]:shadow-sm max-sm:group-[&amp;.is-nav-selected]:scale-150">
-                        <img className="h-full w-full object-cover object-center" src={centralImages.testimonial_client_3} alt="Eric Sanchez" />
-                      </figure>
-                      <div className="whitespace-nowrap opacity-0 transition-all group-[&amp;.is-nav-selected]:opacity-100">
-                        <p className="text-heading-foreground">Eric Sanchez</p>
-                        <p className="text-heading-foreground opacity-15">UX Designer</p>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
                 <Splide options={options}>
                   {
                     testimonialData.map((testimonial) => (
-                      <SplideSlide key={testimonial.id}>
-                        <div className="w1/3 group cursor-pointer pb-[16px] pt-9 text-center text-[15px] font-medium">
-                          <figure className="size-11 mx-auto mb-4 overflow-hidden rounded-full transition-all group-[&amp;.is-nav-selected]:-translate-y-4 group-[&amp;.is-nav-selected]:scale-[1.75] group-[&amp;.is-nav-selected]:border-[5px] group-[&amp;.is-nav-selected]:border-white group-[&amp;.is-nav-selected]:shadow-sm max-sm:group-[&amp;.is-nav-selected]:scale-150">
+                      <SplideSlide className="group" key={testimonial.id}>
+                        <div className="w1/3 cursor-pointer pb-[16px] pt-9 text-center text-[15px] font-medium">
+                          <figure className="size-11 mx-auto mb-4 overflow-hidden rounded-full transition-all group-[&amp;.is-active]:-translate-y-4 group-[&.is-active]:scale-[1.75] group-[&.is-active]:border-[5px] group-[&.is-active]:border-white group-[&.is-active]:shadow-sm max-sm:group-[&.is-active]:scale-150">
                             <img className="h-full w-full object-cover object-center" src={testimonial.avatar} alt="Tom Daniel" />
                           </figure>
-                          <div className="whitespace-nowrap opacity-0 transition-all group-[&amp;.is-nav-selected]:opacity-100">
+                          <div className="whitespace-nowrap opacity-0 transition-all group-[&.is-active]:opacity-100">
                             <p className="text-heading-foreground">{testimonial.client}</p>
                             <p className="text-heading-foreground opacity-15">{testimonial.position}</p>
                           </div>

@@ -35,7 +35,7 @@
 
 /* upper nav start */
 .upperNavBg {
-  background-image: url('../assets/upperNav/upperNav.png');
+  background-image: url('/src/assets/image/upperNav/upperNav.png');
   background-size: cover;
 }
 

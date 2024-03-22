@@ -10,11 +10,13 @@ import FAQ from "./FAQ/FAQ";
 import LatestNews from "./LatestNews/LatestNews";
 import Footer from "./Footer/Footer";
 import Pricing from "./Pricing/Pricing";
+import Header from "../../components/Shared/Header";
 
 const Home = () => {
     return (
         <React.Fragment>
             <UpperNav />
+            <Header />
             <MainNav />
             <FutureOfAI />
             <CustomTemplates />
