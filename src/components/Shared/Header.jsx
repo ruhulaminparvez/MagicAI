@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { centralImages } from "../../utils/images/centralImages";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -24,9 +25,9 @@ const Header = () => {
       }}
     >
       <nav className="relative flex items-center justify-between border-b border-white border-opacity-10 px-7 py-4 text-[14px] opacity-0 transition-all duration-500 group-[.lqd-is-sticky]/header:border-black group-[.lqd-is-sticky]/header:border-opacity-5 group-[.page-loaded]/body:opacity-100 max-sm:px-2" id="frontend-local-navbar">
-        <a className="site-logo relative basis-1/3 max-lg:basis-1/3" href="https://magicai.liquid-themes.com">
-          <img className="peer absolute start-0 top-1/2 -translate-y-1/2 translate-x-3 opacity-0 transition-all group-[.lqd-is-sticky]/header:translate-x-0 group-[.lqd-is-sticky]/header:opacity-100" src="/themes/default/assets/img/logo/magicAI-logo.svg" alt="MagicAI logo" />
-          <img className="transition-all group-[.lqd-is-sticky]/header:peer-first:translate-x-2 group-[.lqd-is-sticky]/header:peer-first:opacity-0" src="/themes/default/assets/img/logo/magicAI-logo-dark.svg" alt="MagicAI logo" />
+        <a className="site-logo relative basis-1/3 max-lg:basis-1/3" href="/">
+          <img className="peer absolute start-0 top-1/2 -translate-y-1/2 translate-x-3 opacity-0 transition-all group-[.lqd-is-sticky]/header:translate-x-0 group-[.lqd-is-sticky]/header:opacity-100" src={centralImages?.logo} alt="MagicAI logo" />
+          <img className="transition-all group-[.lqd-is-sticky]/header:peer-first:translate-x-2 group-[.lqd-is-sticky]/header:peer-first:opacity-0" src={centralImages?.logoWithName} alt="MagicAI logo" />
         </a>
         <div className="site-nav-container basis-1/3 transition-all max-lg:absolute max-lg:right-0 max-lg:top-full max-lg:max-h-0 max-lg:w-full max-lg:overflow-hidden max-lg:bg-[#343C57] max-lg:text-white [&amp;.lqd-is-active]:max-lg:max-h-[calc(100vh-150px)]">
           <div className="max-lg:max-h-[inherit] max-lg:overflow-y-scroll">

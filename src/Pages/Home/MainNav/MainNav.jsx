@@ -1,4 +1,16 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
 const MainNav = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setActiveIndex((prevIndex) => (prevIndex + 1) % 3);
+        }, 3000);
+
+        return () => clearInterval(intervalId);
+    }, []);
     return (
         <section className="site-section relative flex min-h-screen items-center justify-center overflow-hidden py-52 text-center text-white max-md:pb-16 max-md:pt-48 lqd-is-in-view" id="banner">
             <div className="absolute start-0 top-0 h-full w-full transform-gpu overflow-hidden [backface-visibility:hidden]">
@@ -17,14 +29,16 @@ const MainNav = () => {
                     <div className="banner-title-wrap relative">
                         <h1 className="banner-title mb-7 translate-y-7 font-body font-bold -tracking-wide text-white opacity-0 transition-all ease-out group-[.page-loaded]/body:translate-y-0 group-[.page-loaded]/body:opacity-100">
                             Ultimate AI
-                            <span className="lqd-text-rotator inline-grid grid-cols-1 grid-rows-1 transition-[width] duration-200" style={{ width: '371px' }}>
-                                <span className="lqd-text-rotator-item col-start-1 row-start-1 inline-flex translate-x-3 opacity-0 blur-sm transition-all duration-300 [&amp;.lqd-is-active]:translate-x-0 [&amp;.lqd-is-active]:opacity-100 [&amp;.lqd-is-active]:blur-0">
+                            <span className="lqd-text-rotator inline-grid grid-cols-1 grid-rows-1 transition-[width] duration-200"
+                                style={{ width: activeIndex === 0 ? '390px' : activeIndex === 1 ? '313px' : '371px' }}
+                            >
+                                <span className={`lqd-text-rotator-item col-start-1 row-start-1 inline-flex translate-x-3 opacity-0 blur-sm transition-all duration-300 [&.lqd-is-active]:translate-x-0 [&.lqd-is-active]:opacity-100 [&.lqd-is-active]:blur-0 ${activeIndex === 0 ? 'lqd-is-active' : ''}`}>
                                     <span>Generator</span>
                                 </span>
-                                <span className="lqd-text-rotator-item col-start-1 row-start-1 inline-flex translate-x-3 opacity-0 blur-sm transition-all duration-300 [&amp;.lqd-is-active]:translate-x-0 [&amp;.lqd-is-active]:opacity-100 [&amp;.lqd-is-active]:blur-0">
+                                <span className={`lqd-text-rotator-item col-start-1 row-start-1 inline-flex translate-x-3 opacity-0 blur-sm transition-all duration-300 [&.lqd-is-active]:translate-x-0 [&.lqd-is-active]:opacity-100 [&.lqd-is-active]:blur-0 ${activeIndex === 1 ? 'lqd-is-active' : ''}`}>
                                     <span>Chatbot</span>
                                 </span>
-                                <span className="lqd-text-rotator-item col-start-1 row-start-1 inline-flex translate-x-3 opacity-0 blur-sm transition-all duration-300 [&amp;.lqd-is-active]:translate-x-0 [&amp;.lqd-is-active]:opacity-100 [&amp;.lqd-is-active]:blur-0 lqd-is-active">
+                                <span className={`lqd-text-rotator-item col-start-1 row-start-1 inline-flex translate-x-3 opacity-0 blur-sm transition-all duration-300 [&.lqd-is-active]:translate-x-0 [&.lqd-is-active]:opacity-100 [&.lqd-is-active]:blur-0 ${activeIndex === 2 ? 'lqd-is-active' : ''}`}>
                                     <span>Assistant</span>
                                 </span>
                             </span>
