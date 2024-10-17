@@ -1,4 +1,4 @@
-# Project: Magic AI 🪄
+# Magic AI 🪄
 
 **Magic AI** is a UI-driven website built with **React** and styled using **Tailwind CSS** for a sleek, responsive design.
 
